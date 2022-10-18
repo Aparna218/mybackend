@@ -45,21 +45,21 @@ router.get('/GET/:movies', function (req, res){
     let movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
     res.send(movies)
 })
-module.exports = router;
+
 //Second problem
-router.get('movies/:indexNumber', function(req,res){
-    let movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
-    const moviesName = getmoviesByindexNumber
-    console.log('Name of the movies is ', moviesName)
-    res.send(movies[indexNumber])
+router.get('/movies/:indexNumber', function(req,res){
+    const  moviesarr = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
+    const index = req.params.indexNumber
+    res.send(moviesarr[index])
 
 })
 //Third problem
- router.get('abc/:indexNumber',function indexNumber(req,res){
-    var indexNumber =req.params.indexNumber
-    let abc = ['a','b','c']
-    if(indexNumber>abc.length||indexNumber<0){
-        res.send("Please give us a valid number so we can able to share a correct detalis ")
-    }
-    res.send(abc[indexNumber])
+ router.get('/movie/:indexNumber', function(req,res){
+    const moviearr = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
+    const i = req.params.indexNumber
+    if(i < (moviearr.length) && Number(i) > 0){
+        res.send(moviearr[i])}
+    else {
+        res.send("use a valid index ")}
     })
+    module.exports = router;
