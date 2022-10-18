@@ -39,5 +39,27 @@ router.get('/student-details/:name', function(req, res){
     console.log('Name of the student is ', studentName)
     res.send('Dummy response')
 })
-
+//First problem
+router.get('/GET/:movies', function (req, res){
+    console.log("The path params in the request are : ", req.params)
+    let movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
+    res.send(movies)
+})
 module.exports = router;
+//Second problem
+router.get('movies/:indexNumber', function(req,res){
+    let movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
+    const moviesName = getmoviesByindexNumber
+    console.log('Name of the movies is ', moviesName)
+    res.send(movies[indexNumber])
+
+})
+//Third problem
+ router.get('abc/:indexNumber',function indexNumber(req,res){
+    var indexNumber =req.params.indexNumber
+    let abc = ['a','b','c']
+    if(indexNumber>abc.length||indexNumber<0){
+        res.send("Please give us a valid number so we can able to share a correct detalis ")
+    }
+    res.send(abc[indexNumber])
+    })
