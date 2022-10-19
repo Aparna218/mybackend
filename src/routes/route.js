@@ -32,7 +32,7 @@ router.get('/students/:studentName', function(req, res){
 })
 
 // Example 2 for path params
-router.get('/student-details/:name', function(req, res){
+router.post('/student-details/:name', function(req, res){
     let requestParams = req.params
     console.log("This is the request ", requestParams)
     let studentName = requestParams.name
@@ -40,9 +40,8 @@ router.get('/student-details/:name', function(req, res){
     res.send('Dummy response')
 })
 //First problem
-router.get('/GET/:movies', function (req, res){
-    console.log("The path params in the request are : ", req.params)
-    let movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
+router.get('/movies', function (req, res){
+    const movies = ['Rang de basanti', 'The shinning', 'The lord of rings', 'Batsman beings']
     res.send(movies)
 })
 
@@ -62,4 +61,46 @@ router.get('/movies/:indexNumber', function(req,res){
     else {
         res.send("use a valid index ")}
     })
+
+//Fourth problem
+router.get('/films', function(req,res){
+    const flim = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       res.send(flim)
+})
+
+//Fifth problem 
+router.get('/flim/:filmId', function(req,res){
+    const flim = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       const i = req.params.filmId
+       if (i<=flim.length) {
+        res.send(flim[i])
+        
+       } else {
+        res.send("invalid id")
+       }   
+})
     module.exports = router;
