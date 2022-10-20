@@ -103,4 +103,105 @@ router.get('/flim/:filmId', function(req,res){
         res.send("invalid id")
        }   
 })
-    module.exports = router;
+   
+
+
+    //assignment 
+    //const router = require("../routes/route")
+//const { route } = require("../routes/route")
+
+/*you will be given an array of persons ( i.e an array of objects )..each person will have  a {name: String , age: Number, votingStatus: true/false(Boolean)}
+take input in query param as votingAge..and for all the people above that age, change votingStatus as true
+also return an array consisting of only the person that can vote
+
+WRITE A POST API TO THE ABOVE
+
+take this as sample for array of persons:*/
+let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+
+ router.post('/validage', function(req,res){
+ const voting = req.query.age
+ const newarr =[]
+ for (let index = 0; index < persons.length; index++) {
+     const element = persons[index];
+     if ((element.age>=voting)) {
+         element.votingStatus= true
+         newarr.push(element)
+     } 
+     
+ }
+ 
+ res.send(newarr)
+  })
+  
+  module.exports = router;
+ 
+//Assignment
+
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ]
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ]
+       },
+   ]
+
+router.post('/players', (req, res) => {
+    let player = req.body;
+    let playerExists = players.find(p => p.name === player.name);  //check if player already exists
+    if (playerExists) {
+        res.status(400).send('Player already exists');
+    } else {
+        players.push(player);
+        res.send(player);
+    }
+    });
