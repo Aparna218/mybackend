@@ -14,17 +14,17 @@ router.get("/test-me", function (req, res) {
 
 router.post("/createUser", UserController.createUser  )
 router.get("/getUsersData", UserController.getUsersData)
-//booksmodel
+
 router.post("/createBook", BookController.createBook  )
 router.get("/getBooksData", BookController.getBooksData)
 
 router.post("/updateBooks", BookController.updateBooks)
 router.post("/deleteBooks", BookController.deleteBooks)
-//author
-router.post("/createauthor", authorController.createauthor)
+
+router.post("/createauthor", authorController.createauthor  )
 router.get("/getauthorData", authorController.getauthorData)
-//booksname
-router.post("/createbooksname", booksnameController.createBooksname  )
+
+router.post("/createbooksname", booksnameController.createBooksname)
 
 router.get("/getbooksnameData", booksnameController.getBooksnameData)
 
