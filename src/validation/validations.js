@@ -15,13 +15,7 @@ const isValidEmail = (email) =>
     /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/
     return emailRegex.test(email)
 }
-// validation of password
-const isValidPassword = (password) =>
-{
-    const passwordRegex  = 
-    /^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))$/
-    return passwordRegex.test(password)
-}
+
 //  validation for ObjectId
 const isvalidObjectid = (objectId) =>
 {
@@ -36,4 +30,4 @@ const isValidTitle = (title) =>
 }
 
 
-module.exports = { validName, isValidEmail , isvalidObjectid , isValidTitle, isValidPassword}
+module.exports = { validName, isValidEmail , isvalidObjectid , isValidTitle}
